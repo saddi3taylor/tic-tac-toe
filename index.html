@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tic Tac Toe</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" href="images/favicon.ico">
+</head>
+
+<body>
+
+    <div class="container">
+        <h1>Tic <span class="Tac">Tac</span> Toe</h1>
+        <div id="players">
+            <div id="player_one" class="flex">
+                <h2 class="player1">Player One</h2>
+            </div>
+            <div id="player_two" class="flex">
+                <h2 class="player2">Player Two</h2>
+            </div>
+        </div>
+        <div id="choose_colors" class="flex">
+            <div>
+                <p class="pick_color">Pick a color: <input onchange="colorSelected1(this)" type="color"></p>
+            </div>
+            <div>
+                <p class="pick_color">Pick a color: <input onchange="colorSelected2(this)" type="color"></p>
+            </div>
+        </div>
+
+        <div id="gameboard"></div>
+        <p id="info"></p>
+        <button class="reset_button">Restart</button>
+    </div>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.0/jquery.min.js"></script>
+    <script src="index.js"></script>
+</body>
+</html>

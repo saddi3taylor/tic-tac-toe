@@ -1,0 +1,269 @@
+:root{
+    --pseudo-backgroundcolor: red;
+    --pseudo-bordercolor: blue;
+    --pseudo-button-backgroundcolor: red;
+}
+
+.container {
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: auto;
+    flex-direction: column;
+}
+
+h1 {
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 5rem;
+    text-align: center;
+    margin: 10px auto;
+}
+
+span {
+    color: seagreen;
+}
+
+#players {
+    display: flex;
+    gap: 60px;
+}
+
+.pick_color {
+    font-size: 1.2rem;
+    margin: 0 auto;
+}
+
+.flex {
+    display: flex;
+    gap: 10px;
+}
+
+#gameboard {
+    width: 300px;
+    height: 300px;
+    background-color: black;
+    display: flex;
+    flex-wrap: wrap;
+    border: 1px solid black;
+    transform: scale(1.3);
+    margin: 80px 0 40px;
+}
+
+p {
+    font-size: 1.5rem;
+    font-weight: lighter;
+}
+
+.square{
+    width: 100px;
+    height: 100px;
+    background-color: white;
+    border: 2px solid black;
+    box-sizing: border-box;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+}
+
+#gameboard .square:not(:has(.circle)):not(:has(.cross)):hover {
+    background-color: rgb(202, 220, 210);
+}
+
+.circle {
+    height: 85px;
+    width: 85px;
+    border-radius: 50%;
+    border: 15px solid var(--pseudo-bordercolor);
+    box-sizing: border-box;
+    box-shadow: 3px 1px black;
+    cursor: not-allowed;
+}
+
+.cross {
+    height: 90px;
+    width: 90px;
+    position: relative;
+    cursor: not-allowed;
+}
+
+.cross:before, .cross:after {
+    content: "";
+    position: absolute;
+    background-color: var(--pseudo-backgroundcolor);
+    transform: rotate(45deg);
+    border-radius: 10px;
+    /* box-shadow: 3px 1px black; */
+}
+
+.cross:before {
+    left: 50%;
+    width: 30%;
+    margin-left: -15%;
+    height: 100%;
+    box-shadow: 1px 1px black;
+}
+
+.cross:after {
+    top: 50%;
+    height: 30%;
+    margin-top: -15%;
+    width: 100%;
+    box-shadow: 1px 1px black;
+}
+
+.smaller_circle {
+    height: 25px;
+    width: 25px;
+    margin-top: 20px;
+    border-radius: 50%;
+    border: 5px solid blue;
+    box-sizing: border-box; 
+}
+
+.smaller_cross {
+    height: 25px;
+    width: 25px;
+    margin-top: 20px;
+    position: relative;   
+}
+
+.smaller_cross:before, .smaller_cross:after {
+    content: "";
+    position: absolute;
+    background-color: var(--pseudo-backgroundcolor);
+    transform: rotate(45deg);
+    border-radius: 10px;
+}
+
+.smaller_cross:after {
+    top: 50%;
+    height: 30%;
+    margin-top: -15%;
+    width: 100%;
+}
+
+.smaller_cross:before {
+    left: 50%;
+    width: 30%;
+    margin-left: -15%;
+    height: 100%;
+}
+
+.reset_button {
+    margin: 0;
+    padding: 5px 15px;
+    border: 1px solid black;
+    border-radius: 15px;
+    background-color: lightgray;
+    font-size: 1.5rem;
+    cursor: pointer;
+    transition: all 0.5s ease;
+    transition: none;
+}
+
+.reset_button:hover{
+    background-color: rgb(255, 71, 71);
+    font-size: 1.8rem;
+}
+
+.winner_screen{
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.43);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    flex-direction: column;
+}
+
+.winner_text {
+    font-size: 5rem;
+    color: white;
+    text-shadow: 2px 0.5px 1px black;
+    margin-bottom: 15px;
+}
+
+.play_again_button {
+    margin: 0;
+    padding: 10px 15px;
+    background-color: var(--pseudo-button-backgroundcolor);
+    text-shadow: 1px 0.5px 1px black;
+    color: aliceblue;
+    border: 2px solid black;
+    border-radius: 15px;
+    font-size: 1.5rem;
+    cursor: pointer;
+}
+
+.play_again_button.draw {
+    background-color: seagreen;
+}
+
+.play_again_button.draw:hover {
+    background-color: rgb(34, 106, 65);
+}
+
+@media (max-width: 444px) {
+    #gameboard {
+        transform: scale(1);
+        margin: 40px 0 0;
+    }
+
+    #gameboard .square:not(:has(.circle)):not(:has(.cross)):hover {
+        background-color: none;
+    }
+
+    h1 {
+        font-size: 3.5rem;
+    }
+
+    h2 {
+        font-size: 1.3rem;
+    }
+
+    #choose_colors, #players {
+        gap: 32px;
+      }
+
+      .smaller_circle, .smaller_cross {
+        height: 25px;
+        width: 25px;
+        margin-top: 15px;
+      }
+}
+
+@media (min-width: 445px) and (max-width: 700px){
+    #gameboard {
+        transform: scale(1.3);
+        margin: 60px 0;
+    }
+
+    #gameboard .square:not(:has(.circle)):not(:has(.cross)):hover {
+        background-color: none;
+    }
+
+    h1 {
+        font-size: 4rem;
+    }
+
+    h2 {
+        font-size: 1.5rem;
+    }
+
+    #choose_colors, #players {
+        gap: 32px;
+      }
+
+      .smaller_circle, .smaller_cross {
+        height: 25px;
+        width: 25px;
+        margin-top: 20px;
+      }
+}
